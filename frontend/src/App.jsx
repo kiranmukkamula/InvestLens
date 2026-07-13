@@ -104,7 +104,7 @@ export default function App() {
             InvestLens
           </h1>
           <p className="text-brand-muted mt-2 text-sm md:text-base">
-            Institutional-Grade Multi-Agent AI Investment Decision System
+            Analyze stocks and generate comprehensive, institutional-grade fundamental research reports instantly.
           </p>
         </div>
         
@@ -138,9 +138,9 @@ export default function App() {
       {loading && (
         <div className="flex flex-col items-center justify-center py-24 glass-panel rounded-xl shadow-xl space-y-4">
           <Clock className="w-12 h-12 text-brand-green animate-spin" />
-          <h3 className="text-xl font-semibold">Orchestrating AI Investment Agents...</h3>
+          <h3 className="text-xl font-semibold">Generating Investment Analysis Report...</h3>
           <p className="text-brand-muted text-sm text-center max-w-md px-4">
-            Calling Finnhub, Yahoo Finance, and News API tools. Transforming data schema, running calculations, analyzing SWOT, and generating ratings via Groq Llama 3.3 70B.
+            Fetching latest financial statements, evaluating performance metrics, processing recent news stories, and compiling SWOT matrices. This may take a few seconds.
           </p>
         </div>
       )}
@@ -169,20 +169,20 @@ export default function App() {
           <Award className="w-16 h-16 text-brand-green mb-4 opacity-75" />
           <h2 className="text-2xl font-bold font-sans">Corporate Investment Analyzer</h2>
           <p className="text-brand-muted mt-3 max-w-lg">
-            Enter a publicly listed company stock ticker (e.g. <b>AAPL</b>, <b>TSLA</b>) to initiate a full fundamental analysis report using LangGraph and Groq Llama 3.3 70B.
+            Enter a publicly listed company stock ticker (e.g., <b>AAPL</b>, <b>TSLA</b>) to generate a comprehensive investment research report. InvestLens consolidates financials, news sentiment, growth outlooks, and key business risks.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
             <div className="p-4 rounded-xl border border-brand-border bg-brand-card/45">
-              <span className="text-brand-green font-bold block mb-1">ReAct Tools</span>
-              <span className="text-xs text-brand-muted">Finnhub profile & Yahoo Finance data retrieval</span>
+              <span className="text-brand-green font-bold block mb-1">Financial Ratios</span>
+              <span className="text-xs text-brand-muted">Evaluates revenue, profit, margins, and leverage metrics.</span>
             </div>
             <div className="p-4 rounded-xl border border-brand-border bg-brand-card/45">
-              <span className="text-brand-green font-bold block mb-1">Deduplicated News</span>
-              <span className="text-xs text-brand-muted">Unified sentiment analysis from Tavily & NewsAPI</span>
+              <span className="text-brand-green font-bold block mb-1">Sentiment Tracker</span>
+              <span className="text-xs text-brand-muted">Monitors and rates recent corporate news sentiment.</span>
             </div>
             <div className="p-4 rounded-xl border border-brand-border bg-brand-card/45">
-              <span className="text-brand-green font-bold block mb-1">Calculations</span>
-              <span className="text-xs text-brand-muted">Precise ratios using safe floating math</span>
+              <span className="text-brand-green font-bold block mb-1">SWOT Assessment</span>
+              <span className="text-xs text-brand-muted">Analyzes core corporate strengths, weaknesses, and risks.</span>
             </div>
           </div>
         </div>
@@ -429,21 +429,6 @@ export default function App() {
                   <div className="p-3.5 rounded-lg border border-brand-border bg-brand-card/25 flex items-center justify-between">
                     <span className="text-brand-muted">Market Capitalization</span>
                     <span className="font-bold text-brand-text">{formatCurrency(report.company.marketCapitalization)}</span>
-                  </div>
-                  
-                  <div className="p-3.5 rounded-lg border border-brand-border bg-brand-card/25">
-                    <span className="text-brand-muted block mb-2">Competitors</span>
-                    {report.company.competitors.length > 0 ? (
-                      <div className="flex flex-wrap gap-2">
-                        {report.company.competitors.map((comp, idx) => (
-                          <span key={idx} className="px-2.5 py-1 bg-brand-card border border-brand-border/60 text-xs rounded text-brand-text">
-                            {comp}
-                          </span>
-                        ))}
-                      </div>
-                    ) : (
-                      <span className="text-brand-muted text-xs italic">No competitor details available.</span>
-                    )}
                   </div>
                 </div>
               </div>
