@@ -140,7 +140,7 @@ export default function App() {
           <Clock className="w-12 h-12 text-brand-green animate-spin" />
           <h3 className="text-xl font-semibold">Orchestrating AI Investment Agents...</h3>
           <p className="text-brand-muted text-sm text-center max-w-md px-4">
-            Calling Finnhub, Yahoo Finance, and News API tools. Transforming data schema, running calculations, analyzing SWOT, and generating ratings via Gemini 2.5 Flash.
+            Calling Finnhub, Yahoo Finance, and News API tools. Transforming data schema, running calculations, analyzing SWOT, and generating ratings via Groq Llama 3.3 70B.
           </p>
         </div>
       )}
@@ -169,7 +169,7 @@ export default function App() {
           <Award className="w-16 h-16 text-brand-green mb-4 opacity-75" />
           <h2 className="text-2xl font-bold font-sans">Corporate Investment Analyzer</h2>
           <p className="text-brand-muted mt-3 max-w-lg">
-            Enter a publicly listed company stock ticker (e.g. <b>AAPL</b>, <b>TSLA</b>) to initiate a full fundamental analysis report using LangGraph and Gemini 2.5 Flash.
+            Enter a publicly listed company stock ticker (e.g. <b>AAPL</b>, <b>TSLA</b>) to initiate a full fundamental analysis report using LangGraph and Groq Llama 3.3 70B.
           </p>
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
             <div className="p-4 rounded-xl border border-brand-border bg-brand-card/45">
