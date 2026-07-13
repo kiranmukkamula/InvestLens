@@ -60,8 +60,8 @@ export default function App() {
 
     try {
       const targetSymbol = symbol.toUpperCase().trim();
-      // Hits local Express server on port 3000
-      const response = await axios.get(`http://localhost:3000/api/analyze/${targetSymbol}`);
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+      const response = await axios.get(`${apiBaseUrl}/api/analyze/${targetSymbol}`);
       
       if (response.data && response.data.success) {
         setReport(response.data.data);
