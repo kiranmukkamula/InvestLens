@@ -71,7 +71,8 @@ export default function App() {
       }
     } catch (err) {
       console.error(err);
-      const errMsg = err.response?.data?.error || 'Failed to connect to the backend server. Please verify the server is running on port 3000.';
+      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
+      const errMsg = err.response?.data?.error || `Failed to connect to the backend server at ${apiBaseUrl}. Please verify the server is online.`;
       const errDetails = err.response?.data?.details || [];
       setError(errMsg);
       setErrorDetails(errDetails);
