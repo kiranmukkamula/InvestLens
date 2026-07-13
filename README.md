@@ -129,3 +129,47 @@ cd InvestLens
    npm run dev
    ```
 4. Open your browser to `http://localhost:5173`.
+
+---
+
+## 📈 Example Runs
+
+Here are verification summaries showing the system output under the new binary decision engine gates:
+
+### Example 1: Tesla, Inc. (TSLA) - Stance: PASS
+```yaml
+Company Name   : Tesla, Inc.
+Recommendation : PASS
+Overall Score  : 64.8 / 100
+Confidence     : 0.60
+Outlook (Short): Tesla's short-term outlook is uncertain due to regulatory risks and high debt burden.
+Outlook (Long) : Tesla's long-term outlook is positive due to its strong brand power and technological moat in the EV market.
+Evidence Cited : 
+  - "Tesla's revenue growth rate of -2.93% over the past year."
+  - "The company's debt ratio of 18.74%."
+  - "Tesla's announcement to expand its production capacity to meet growing demand for its electric vehicles."
+```
+
+### Example 2: Microsoft Corporation (MSFT) - Stance: INVEST
+```yaml
+Company Name   : Microsoft Corporation
+Recommendation : INVEST
+Overall Score  : 86.5 / 100
+Confidence     : 0.85
+Outlook (Short): Bullish, driven by continuous expansion of Azure cloud and enterprise AI integrations.
+Outlook (Long) : Extremely Bullish, secular leadership in generative AI services and strong product moat.
+Evidence Cited :
+  - "Operating margin at 44.6%."
+  - "Year-over-year revenue growth of 17.6%."
+  - "Net income of $72.3B with positive cash flows for all years."
+```
+
+---
+
+## 🚀 What We Would Improve With More Time
+
+1. **Self-Correcting Graph Loops**: Integrate a critique/review loop inside LangGraph. If the `decisionNode` registers a confidence level below `0.70`, it should dynamically prompt a `refine_research_node` to gather more news/filings before finalizing the report.
+2. **SEC filing Scraping**: Integrate a PDF scraping tool to read annual SEC 10-K/10-Q reports directly, rather than relying solely on raw Yahoo Finance price/ratio modules.
+3. **Advanced Caching Policies**: Implement cache invalidation patterns based on live market price thresholds (e.g., clear Redis cache if a stock climbs/drops >5% in a single day, regardless of the 5-minute TTL).
+4. **Real-time Streaming logs**: Implement SSE (Server-Sent Events) or WebSockets on the Express backend so that the React client can see the status of each LangGraph node executing in real time.
+
